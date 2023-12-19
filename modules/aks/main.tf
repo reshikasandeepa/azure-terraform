@@ -32,7 +32,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   azure_active_directory_role_based_access_control {
     managed = true
     azure_rbac_enabled = false
-    admin_group_object_ids = ["3c7dae20-421c-4248-9c7f-ed857d589362"]
+    admin_group_object_ids = var.admin_group_object_ids
   }  
   
   oms_agent {
@@ -51,5 +51,5 @@ resource "azurerm_role_assignment" "aksacr_role" {
 resource "azurerm_role_assignment" "akssubnet_role" {
   scope                = var.subnet_id
   role_definition_name = "Network Contributor"
-  principal_id         = "eb0c33ff-6f5d-412e-8958-85522c5aef39"
+  principal_id         = var.principal_id
 } 

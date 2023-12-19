@@ -77,3 +77,12 @@ variable "subnet_id" {
     description =  "subnet id"
 }
 
+variable "admin_group_object_ids" {
+  description = "List of Azure AD group object IDs"
+  type        = list(string)
+}
+
+variable "principal_id" {
+  description = "Azure AD principal ID"
+  type        = string
+}
